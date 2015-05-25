@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
+=======
+<!doctype html>
+<html>
+    <head></head>
+    <body>
+        <h1>Under Construction</h1>
+        <p>What more do you have to say?</p> 
+    </body>
+</html>
+>>>>>>> 1beefc1c0762e7312b9e33bc5bc6582ac9e07929
