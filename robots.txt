@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: 
+Disallow: /content/
+Disallow: /templates/
+Disallow: /requirements.txt
+Disallow: /build.py
+
+Sitemap: https://keshab.net/sitemaps.xml
