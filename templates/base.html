@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>{{ page_title }}</title>
+        <link rel="stylesheet" href="/p/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="head">
+                {% block head %}
+                    <h1>{{ page_title }}</h1>
+                    <div class="preamble">
+                        {{ description }}
+                        {% if not is_index %}
+                            <a href="/">[Table of Contents]</a>
+                        {% endif %}
+                    </div>
+                {% endblock head %}
+            </div>
+            <div class="content">{% block content %}{% endblock content %}</div>
+            <div class="footer">
+                {% block footer %}
+                    <a href="/">Home</a> | Since 2017
+                {% endblock footer %}
+            </div>
+        </div>
+    </body>
+</html>
