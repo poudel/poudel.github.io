@@ -114,6 +114,10 @@ def build_site():
         }
         fi.write(index.render(context))
 
+    sitemaps = env.get_template('sitemaps.txt')
+    with open(os.path.join(WORKING_DIR, 'sitemaps.xml'), 'w') as fi:
+        fi.write(sitemaps.render({'object_list': published_posts}))
+
     # compile the styles
     css = []
     for filename in os.listdir(STATIC_DIR):
