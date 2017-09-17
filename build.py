@@ -6,9 +6,9 @@ import os
 import shutil
 import re
 import sys
+import yaml
 from datetime import datetime
 from markdown2 import markdown
-from dateutil.parser import parse
 from jinja2 import Environment, FileSystemLoader
 from rcssmin import cssmin
 
@@ -42,14 +42,15 @@ class Post:
                 sys.exit(1)
 
             groupdict = match.groupdict()
-            for matter in groupdict['front'].strip().split('\n'):
-                key, value = map(str.strip, matter.split(':'))
-                if key == 'date':
-                    value = parse(value).date()
-                elif key == 'draft':
-                    value = True if value == 'true' else False
-                setattr(self, key, value)
-
+            try:
+                data = yaml.load(groupdict['front'])
+            except Exception as e:
+                print("There is something wrong with the front matter")
+                print(str(e))
+                sys.exit(1)
+            else:
+                for k, v in data.items():
+                    setattr(self, k, v)
             self.raw_content = groupdict['content'].strip()
 
     def __repr__(self):
