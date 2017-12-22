@@ -85,7 +85,7 @@ class Post:
     def get_all(cls, env):
         posts = []
         for filename in os.listdir(CONTENT_DIR):
-            if filename.endswith('.md'):
+            if filename.endswith('.md') and not filename.startswith(".#"):
                 post = cls(filename, env)
                 posts.append(post)
         return sorted(posts, key=lambda p: p.date, reverse=True)
@@ -109,7 +109,6 @@ def build_site():
     with open(os.path.join(WORKING_DIR, 'index.html'), 'w') as fi:
         context = {
             "object_list": published_posts,
-            "page_title": "keshaB Paudel",
             "description": "Web developer. Python, Django, JavaScript",
             "is_index": True
         }
