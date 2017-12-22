@@ -56,4 +56,13 @@ Some of the technologies I have dabbled and enjoy working with in no particular 
 * **Databases:** MySQL, PostgreSQL
 * **Web:** HTML5, CSS, SaSS etc.
 * **Linux Distros:** CentOS, Ubuntu, Debian, ArchLinux etc.
-* **Dabbled with:** Golang, TypeScript, PHP, Java, Elixir, LaTeX, C et cetera.
+* **Editor/IDE:** Currently using Emacs. Have used Vim, Sublime Text, Pycharm et cetera in the past.
+* **Dabbled with:** Golang, TypeScript, PHP, Java, Elixir, LaTeX, Emacs Lisp, C et cetera.
+
+## This site
+A simple, hotwired static site generator is used to build this site. It can be found
+[here](https://github.com/poudel/poudel.github.io/blob/master/build.py)
+
+I run the python script manually to build the whole site. I may need to think about
+file monitoring, auto reload etc. if this gets bigger, but for now, this is perfectly fine.
+To proof-read, I use `python -m http.server` to serve in development.

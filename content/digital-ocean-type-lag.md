@@ -1,7 +1,7 @@
 ---
 date: 2017-09-08
 location: Kathmandu, Nepal
-title: SSH type lag in a Digital Ocean droplet
+title: SSH terminal typing lag in a Digital Ocean droplet
 description: Type lag caused by network latency in digital ocean servers
 draft: false
 ---
