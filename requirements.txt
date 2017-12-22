@@ -1,4 +1,5 @@
 decorator==4.1.2
+htmlmin==0.1.11
 ipython==6.1.0
 ipython-genutils==0.2.0
 jedi==0.10.2
@@ -15,4 +16,4 @@ simplegeneric==0.8.1
 six==1.10.0
 traitlets==4.3.2
 wcwidth==0.1.7
-PyYAML==3.12
+PyYAML==3.12htmlmin==0.1.11

@@ -4,6 +4,7 @@ location: Kathmandu, Nepal
 title: I learn to C and adjust the brightness
 description: A small C application to adjust brightness of a Lenovo running ArchLinux
 draft: false
+code: true
 ---
 
 I have ArchLinux installed on my work laptop, a Lenovo machine.

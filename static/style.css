@@ -1,69 +1,27 @@
-body {
-    color: #333333;
-    font-size: 14px;
-}
+body {color: #333333; font-size: 14px;}
 
-h1 {
-    font-size: 18px;
-    margin: 0px;
-    color: #000000;
-}
-
+h1 {font-size: 18px; margin: 0px; color: #000000;}
 h2 {font-size: 16px;}
 h3 {font-size: 15px;}
 h4 {font-size: 14px;}
 h5 {font-size: 13px;}
 
-a:link, a:visited {
-    color: #0822e1;
-    text-decoration: none;
-}
+a:link, a:visited {color: #0822e1; text-decoration: none;}
+a:hover, a:active {color: #06a8e7;}
 
-a:hover, a:active {
-    color: #06a8e7;
-}
+.hidden {visibility: hidden;}
 
-.hidden {
-    visibility: hidden;
-}
+.toc {list-style: none; padding-left: 0;}
+.toc li {margin-bottom: 10px;}
+.toc .mg {color: #7a7777;}
 
-.table-of-contents {
-    list-style: none;
-    padding-left: 0;
-}
+.head {border-bottom: solid 1px #efefef;}
 
-.table-of-contents li {
-    margin-bottom: 10px;
-}
+.preamble {font-size: 11px; color: #595555; padding-bottom: 1px;}
 
-.table-of-contents .month-group {
-    color: #7a7777;
-}
+.footer {border-top: solid 1px #efefef; padding: 10px 0; width: 95%;}
 
-.head {
-    border-bottom: solid 1px #efefef;
-}
+.pd {margin: 10px 0 10px 0;}
+.psub {margin-bottom: 5px; font-size: 13px; color: grey;}
 
-.preamble {
-    font-size: 11px;
-    color: #595555;
-    padding-bottom: 1px;
-}
-
-.footer {
-    border-top: solid 1px #efefef;
-    padding: 10px 0;
-    width: 95%;
-}
-.post-detail {
-    margin: 10px 0 10px 0;
-}
-.post-subtitle {
-    margin-bottom: 5px;
-    font-size: 13px;
-    color: grey;
-}
-
-p code {
-    background-color: #f6f6f6 !important;
-}
+p code {background-color: #f6f6f6 !important;}

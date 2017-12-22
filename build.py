@@ -7,10 +7,12 @@ import shutil
 import re
 import sys
 import yaml
+import htmlmin
 from datetime import datetime
 from markdown2 import markdown
 from jinja2 import Environment, FileSystemLoader
 from rcssmin import cssmin
+
 
 CONTENT_PATTERN = re.compile(r"---(?P<front>.*)---(?P<content>.*)", re.S)
 INTERLINK_PATTERN = re.compile(r"\[il:(?P<slug>.+):(?P<anchor>.+)\]")
@@ -27,11 +29,13 @@ def interlink_sub(match):
 
 class Post:
 
-    def __init__(self, filename, env):
+    def __init__(self, filename, env, context):
         self.env = env
+        self.context = context.copy()
         self.slug = os.path.splitext(filename)[0]
         self.output_path = os.path.join(OUTPUT_DIR, "{}".format(self.slug))
         self.draft = False
+        self.code = False
 
         path = os.path.join(CONTENT_DIR, filename)
         with open(path, 'r') as fi:
@@ -53,6 +57,9 @@ class Post:
                     setattr(self, k, v)
             self.raw_content = groupdict['content'].strip()
 
+        if not self.code:
+            self.context['css_chunk'] = self.context['css']['style']
+
     def __repr__(self):
         return "<Post: {}>".format(self.page_title)
 
@@ -67,8 +74,12 @@ class Post:
             extras=["code-friendly", "fenced-code-blocks", "target-blank-links"]
         )
         template = self.env.get_template('detail.html')
-        context = {'post': self, 'page_title': self.title, 'description': self.description}
-        return template.render(context)
+        self.context.update({
+            'post': self,
+            'page_title': self.title,
+            'description': self.description
+        })
+        return htmlmin.minify(template.render(self.context))
 
     def publish(self):
         if not os.path.exists(self.output_path):
@@ -82,18 +93,27 @@ class Post:
             shutil.rmtree(self.output_path)
 
     @classmethod
-    def get_all(cls, env):
+    def get_all(cls, env, context):
         posts = []
         for filename in os.listdir(CONTENT_DIR):
             if filename.endswith('.md') and not filename.startswith(".#"):
-                post = cls(filename, env)
+                post = cls(filename, env, context)
                 posts.append(post)
         return sorted(posts, key=lambda p: p.date, reverse=True)
 
 
 def build_site():
+    # compile and cache all the css files
+    css = {}
+    for filename in os.listdir(STATIC_DIR):
+        with open(os.path.join(STATIC_DIR, filename), 'r') as fi:
+            fname = os.path.splitext(filename)[0]
+            css[fname] = cssmin(fi.read())
+
+    css_chunk = "\n".join(css.values())
+
     env = Environment(loader=FileSystemLoader(os.path.join(WORKING_DIR, 'templates')))
-    posts = Post.get_all(env)
+    posts = Post.get_all(env, {"css_chunk": css_chunk, "css": css})
 
     # first, publish the non-draft posts
     published_posts = []
@@ -110,22 +130,14 @@ def build_site():
         context = {
             "object_list": published_posts,
             "description": "Web developer. Python, Django, JavaScript",
-            "is_index": True
+            "is_index": True,
+            "css_chunk": css["style"] # no need for pygments css here
         }
-        fi.write(index.render(context))
+        fi.write(htmlmin.minify(index.render(context)))
 
     sitemaps = env.get_template('sitemaps.txt')
     with open(os.path.join(WORKING_DIR, 'sitemaps.xml'), 'w') as fi:
         fi.write(sitemaps.render({'object_list': published_posts}))
-
-    # compile the styles
-    css = []
-    for filename in os.listdir(STATIC_DIR):
-        with open(os.path.join(STATIC_DIR, filename), 'r') as fi:
-            css.append(cssmin(fi.read()))
-
-    with open(os.path.join(OUTPUT_DIR, 'style.css'), 'w') as fi:
-        fi.write("\n".join(css))
 
 
 if __name__ == "__main__":
