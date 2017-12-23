@@ -3,11 +3,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://keshab.net/p/django-directory-structure/</loc>
-        <lastmod>2017-12-23</lastmod>
-    </url>
-    
-    <url>
         <loc>https://keshab.net/p/lenovo-brightness-linux/</loc>
         <lastmod>2017-12-22</lastmod>
     </url>
