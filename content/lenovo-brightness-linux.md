@@ -7,19 +7,19 @@ draft: false
 code: true
 ---
 
-I have ArchLinux installed on my work laptop, a Lenovo machine.
-One thing that has been a constant bother is adjusting the brightness.
-It is desirable to adjust the brightness as the day progresses.
+I have ArchLinux installed on my work laptop, a Lenovo machine. One
+thing that has been a constant bother is adjusting the brightness. It
+is desirable to adjust the brightness as the day progresses.
 
-Somehow, the provided hot keys did not work and I have to resort to updating
-the `/sys/class/backlight/intel_backlight/brightness` file manually. I could
-tried to fix the hotkeys but haven't gotten around to doing that yet, as I am
-not very familiar with that side of linux administration. I am sure I will
-get around to doing it some day.
+Somehow, the provided hot keys did not work and I have to resort to
+updating the `/sys/class/backlight/intel_backlight/brightness` file
+manually. I could tried to fix the hotkeys but haven't gotten around
+to doing that yet, as I am not very familiar with that side of linux
+administration. I am sure I will get around to doing it some day.
 
-At first, I used to run the `tee` command from my bash history, which I grew tired
-of very soon.
-Then I wrote the function below and put it in a `.sh` file. I would run this everytime after booting.
+At first, I used to run the `tee` command from my bash history, which
+I grew tired of very soon. Then I wrote the function below and put it
+in a `.sh` file. I would run this everytime after booting.
 
 ```shell
 bright (){
@@ -33,9 +33,11 @@ bright (){
 }
 ```
 
-Then last week, I started dabbling with some C. I realized that I could implement something similar in C
-that would help me adjust the brightness and teach me the language. I know that this problem can
-be solved much easily without writing a C program. But, where's the fun in that?
+Then last week, I started dabbling with some C. I realized that I
+could implement something similar in C that would help me adjust the
+brightness and teach me the language. I know that this problem can be
+solved much easily without writing a C program. But, where's the fun
+in that?
 
 Here is the the C code that I put together in about an hour.
 
@@ -101,8 +103,9 @@ int main (int argc, char** cx){
 ```
 
 
-This is the first time that I have written something
-useful in the C language. This gave me a significant sense of satisfaction.
+This is the first time that I have written something useful in the C
+language. This gave me a significant sense of satisfaction.
 
-One thing I want to improve is to check the current time and adjust brightness
-accordingly if called without an argument. I'll leave that exercise for the future.
+One thing I want to improve is to check the current time and adjust
+brightness accordingly if called without an argument. I'll leave that
+exercise for the future.
