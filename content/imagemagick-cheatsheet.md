@@ -1,8 +1,8 @@
 ---
 date: 2018-02-21
 location: Lalitpur, Nepal
-title: ImageMagick convert command cheatsheet
-description: Commands for ImageMagick's convert for quick command-line image manipulations
+title: ImageMagick commands cheatsheet
+description: ImageMagick commands for quick command-line image manipulations
 draft: false
 code: true
 ---
@@ -45,3 +45,23 @@ convert "*.{png,jpeg}" -quality 100 output.pdf
 ```
 
 Taken from this [AskUbuntu](https://askubuntu.com/a/557975) answer.
+
+
+## Creating collage/montage
+
+To concat multiple images into a single png.
+
+```bash
+convert -append *.jpg out.jpg
+```
+
+To make a collage of passport-sized photo.
+
+```bash
+montage -duplicate 5,0 <filename.jpg> output.jpg
+```
+
+See [more](http://www.imagemagick.org/script/montage.php) for answer.
+http://www.imagemagick.org/Usage/montage/
+
+https://scottlinux.com/2011/08/13/create-photo-collage-in-linux/
