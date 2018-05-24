@@ -24,7 +24,7 @@ STATIC_DIR = os.path.join(WORKING_DIR, 'static')
 
 def interlink_sub(match):
     slug, anchor = match.groups()
-    return "<a href='{}.html'>{}</a>".format(slug, anchor)
+    return f"<a href='/p/{slug}/'>{anchor}</a>"
 
 
 class Post:
