@@ -91,3 +91,7 @@ cat /home/something/backup.sql | docker exec -i <FANCY_NAME> psql -Upostgres
   (pg_dump,pg_restore)](https://www.mkyong.com/database/backup-restore-database-in-postgresql-pg_dumppg_restore/)
 * [Dump and restore of PostgreSQL: version compatibility
   FAQ](https://pgolub.wordpress.com/2013/11/19/dump-and-restore-of-postgresql-version-compatibility-faq/)
+
+* [Gist: PostgreSQL command line cheatsheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546)
+* [Jason Meridth: PostgreSQL Command Line Cheat Sheet](https://blog.jasonmeridth.com/posts/postgresql-command-line-cheat-sheet/)
+
