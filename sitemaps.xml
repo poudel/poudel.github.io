@@ -3,6 +3,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://keshab.net/p/postgresql-commands/</loc>
+        <lastmod>2018-05-24</lastmod>
+    </url>
+    
+    <url>
         <loc>https://keshab.net/p/imagemagick-cheatsheet/</loc>
         <lastmod>2018-02-21</lastmod>
     </url>

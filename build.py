@@ -37,8 +37,8 @@ class Post:
         self.draft = False
         self.code = False
 
-        path = os.path.join(CONTENT_DIR, filename)
-        with open(path, 'r') as fi:
+        self.path = os.path.join(CONTENT_DIR, filename)
+        with open(self.path, 'r') as fi:
             match = CONTENT_PATTERN.match(fi.read())
 
             if not match:
@@ -92,6 +92,10 @@ class Post:
         if os.path.exists(self.output_path):
             shutil.rmtree(self.output_path)
 
+    def spellcheck(self):
+        print("Spellchecking...")
+        os.system(f"hunspell -l {self.path} | sort | uniq >words")
+
     @classmethod
     def get_all(cls, env, context):
         posts = []
@@ -122,6 +126,7 @@ def build_site():
             post.unpublish()
         else:
             published_posts.append(post)
+            # post.spellcheck()
             post.publish()
 
     # build the index page
