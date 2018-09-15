@@ -1,7 +1,7 @@
 ---
 date: 2018-02-21
 location: Lalitpur, Nepal
-title: ImageMagick Commands
+title: ImageMagick Notes
 description: ImageMagick commands for quick command-line image manipulations
 draft: false
 code: true

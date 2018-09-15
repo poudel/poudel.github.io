@@ -1,7 +1,7 @@
 ---
 date: 2018-05-24
 location: Kathmandu, Nepal
-title: Postgres Commands
+title: Postgres Notes
 description: List of postgres commands that I always end up having to look up
 draft: false
 code: true
