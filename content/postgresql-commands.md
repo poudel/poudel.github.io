@@ -84,6 +84,21 @@ If there's a need to run a version of postgresql that is not in the
 system packages repository then Docker is probably the best option.
 
 
+### In docker-compose.yml
+
+```yml
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./path/to/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+    expose:
+      - 5432
+```
+
+
 ### Pull and run the image
 
 Pull the required image, see docker hub page for
