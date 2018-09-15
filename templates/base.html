@@ -10,12 +10,15 @@
         <div class="container">
             <div class="head">
                 {% block head %}
+                    {% if not is_index %}
+                        <div class="back-button">
+                            <a href="/">[Index page]</a>
+                        </div>
+                    {% endif %}
+
                     <h1>{% if page_title %}{{ page_title }}{% else %}keshab{% endif %}</h1>
                     <div class="preamble">
                         {{ description }}
-                        {% if not is_index %}
-                            <a href="/">[Table of Contents]</a>
-                        {% endif %}
                     </div>
                 {% endblock head %}
             </div>

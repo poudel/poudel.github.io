@@ -17,13 +17,13 @@ a:hover, a:active {color: #06a8e7;}
 .toc li {margin-bottom: 10px;}
 .toc .mg {color: #7a7777;}
 
-.head {border-bottom: solid 1px #efefef;}
-
+.back-button {margin-top: 3px;}
+.head {border-bottom: solid 1px #efefef; padding-bottom: 3px;}
 .preamble {font-size: 11px; color: #595555; padding-bottom: 1px;}
 
 .footer {border-top: solid 1px #efefef; padding: 10px 0;}
 
-.pd {margin: 10px 0 10px 0;}
+.pd {margin: 5px 0 10px 0;}
 .psub {margin-bottom: 5px; font-size: 13px; color: grey;}
 
 p code {background-color: #f6f6f6 !important;}
