@@ -3,14 +3,14 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>{% if page_title %} {{ page_title }} - {% endif %} keshaB Paudel, Python Developer from Nepal</title>
+      <title>{% if page_title %} {{ page_title }} - {% endif %} keshab: software developer from Nepal</title>
       {% if css_chunk %}<style>{{ css_chunk }}</style>{% endif %}
     </head>
     <body>
         <div class="container">
             <div class="head">
                 {% block head %}
-                    <h1>{% if page_title %}{{ page_title }}{% else %}keshaB Paudel{% endif %}</h1>
+                    <h1>{% if page_title %}{{ page_title }}{% else %}keshab{% endif %}</h1>
                     <div class="preamble">
                         {{ description }}
                         {% if not is_index %}
@@ -22,7 +22,7 @@
             <div class="content">{% block content %}{% endblock content %}</div>
             <div class="footer">
                 {% block footer %}
-                    <a href="/">Home</a> | <a target="_blank" href="https://github.com/poudel">Github</a> | <a href="/sitemaps.xml">Sitemaps</a> | Since 2017
+                    <a href="/">Home</a> | <a target="_blank" href="https://github.com/poudel">Github</a> | <a target="_blank" href="https://www.linkedin.com/in/keshabpaudel/">Linkedin</a> | <a href="/sitemaps.xml">Sitemaps</a> | Since 2017
                 {% endblock footer %}
             </div>
         </div>

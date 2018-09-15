@@ -134,7 +134,7 @@ def build_site():
     with open(os.path.join(WORKING_DIR, 'index.html'), 'w') as fi:
         context = {
             "object_list": published_posts,
-            "description": "Web developer. Python, Django, JavaScript",
+            "description": "software developer",
             "is_index": True,
             "css_chunk": css["style"] # no need for pygments css here
         }

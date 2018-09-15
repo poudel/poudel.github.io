@@ -17,8 +17,7 @@ back-end side of things, although I have come to enjoy the front-end.
 Although CSS is not exactly my forte, I can manage to get around most
 of the time.
 
-Like any normal software developer of this age, I have a linkedin
-profile [here](https://www.linkedin.com/in/keshabpaudel/).
+I have a linkedin profile [here](https://www.linkedin.com/in/keshabpaudel/).
 
 
 ## Work Experience
