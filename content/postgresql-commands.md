@@ -30,9 +30,23 @@ psql
 
 ```
 
+### Insert from a file
+
+Limitation: It should be one query per line for this to work properly.
+
+```python
+def load_file_queries(conn, file_path):
+    with open(file_path, "r") as schema_file:
+        schemas = schema_file.readlines()
+
+    with conn.cursor() as cur:
+        cur.execute(schema)
+        conn.commit()
+```
+
 ### Info about the tables
 
-#### List of columns and their data types of a table.
+#### Columns and their data types.
 
 If the schema is anything other than the default one, append `AND
 table_schema = '<schema_name>'` at the end of the query.
