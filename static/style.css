@@ -6,7 +6,7 @@ h3 {font-size: 15px;}
 h4 {font-size: 14px;}
 h5 {font-size: 13px;}
 
-.container {max-width: 800px; margin: auto;}
+.container {max-width: 600px; margin: auto;}
 
 a:link, a:visited {color: #0822e1; text-decoration: none;}
 a:hover, a:active {color: #06a8e7;}
