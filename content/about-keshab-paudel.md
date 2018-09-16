@@ -11,28 +11,31 @@ I can be reached through email on `self@<this-domain>`.
 
 ## Bio
 I am a full-stack software developer specializing in Python. I have
-more than two years of software development experience. I have worked
+more than three years of software development experience. I have worked
 mainly with Python, Django and JavaScript. I prefer working on the
-back-end side of things, although I have come to enjoy the front-end.
+back-end side of things, although I have come to enjoy the front-end lately.
 Although CSS is not exactly my forte, I can manage to get around most
-of the time.
+of the time. I have a personal preference for minimal and utilitarian interfaces.
 
-I have a linkedin profile [here](https://www.linkedin.com/in/keshabpaudel/).
+I also have a linkedin profile [here](https://www.linkedin.com/in/keshabpaudel/).
 
 
 ## Work Experience
 
 ### Janaki Technology / Khalti (September 2017 - Now)
+
 I joined Janaki Technology to work on [Khalti](https://khalti.com/),
 mostly on the backend. Ever since joining Khalti, I have learned so
-much about API, permissions et cetera. I have also found love in
-JavaScript, both in the front and back end side.
+much about API development, scaling, testing, permissions et cetera. I
+have also found love in JavaScript, both in the front and back end
+side.
 
 It has only been a few months since I've been here so I don't have
 much to share, except that I am loving it.
 
 
-### Real Solutions / merojob.com / AayuLogic (May 2015 - September 2017)
+### Real Solutions / AayuLogic (May 2015 - September 2017)
+
 While at Real Solutions, I worked on
 [RealHRsoft](http://realhrsoft.com), an enterprise Human Resource
 Management system. This was my first job ever. I was able to learn a
@@ -44,8 +47,8 @@ points about my experience by working on this project are as follows.
   most fragile. I learned it while trying to integrate attendance
   devices with the time and attendance subsystem.
 * Multi-tenancy is hard.
-* Coding standards is a requirement.
-* Automated testing is a requirement.
+* Coding standards should be a requirement.
+* Automated testing should be a requirement.
 * Software development is really an iterative process.
 * No matter how hard you try, the clientele will always find a way to
   complain and ask for more.
