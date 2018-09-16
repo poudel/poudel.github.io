@@ -6,11 +6,12 @@ description: The impeccably timed lightening strike on the horizon shakes my alr
 draft: false
 ---
 
-This is what a dystopia must look like. I remember thinking that the
-first time I saw the flickering lights on the lamp posts on the
-Thapathali bridge. That was a year ago when I was returning home from
-work, from Pulchowk to Anamnagar. The bridge in question is the one
-that joins Thapathali and Kopundol.
+"This is what a dystopia must look like."
+
+I remember thinking that the first time I saw the flickering lights on
+the lamp posts on the Thapathali bridge. That was a year ago when I
+was returning home from work, from Pulchowk to Anamnagar. The bridge
+in question is the one that joins Thapathali and Kopundol.
 
 There was a heavy rainfall a few days ago. When I was walking back
 home that evening, I paused on the middle of the bridge to see the
