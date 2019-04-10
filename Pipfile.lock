@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1b9a940b0c88c5e265d5b6ad19c17fc4278183f62538cf913f82ff028e263aaf"
+            "sha256": "55653c9c074cb3aa32f6d5b0df192b9e0a3c8d7bb676f9d7bdf0378776a4cd80"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,10 @@
         ]
     },
     "default": {
+        "gruvbox-pygments": {
+            "editable": true,
+            "path": "./gruvbox-pygments"
+        },
         "pygments": {
             "hashes": [
                 "sha256:5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a",

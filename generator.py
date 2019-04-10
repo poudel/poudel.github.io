@@ -1,27 +1,14 @@
 #!/usr/bin/env python
 
+from string import Template
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
 
 
-index_html_tpl = '''
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{about[name]} - {about[description]}</title>
-        <meta name="description" content="{about[description]}">
-        <style>
-            body {{background: #1d2021; font-family: monospace}}
-            .lineno {{color: grey; margin-right: 10px;}}
-            {style}
-        </style>
-    </head>
-    <body>{body}</body>
-</html>
-'''
+def get_index_template():
+    with open('index_tpl.html') as tpl:
+        return Template(tpl.read())
 
 
 def get_code():
@@ -31,13 +18,14 @@ def get_code():
 
 def generate(about):
     code = get_code()
-    formatter = HtmlFormatter(linenos='inline', style='monokai')
+    formatter = HtmlFormatter(linenos='inline', style='gruvbox')
 
-    index_html = index_html_tpl.format(
-        about=about,
-        style=formatter.get_style_defs(),
-        body=highlight(code, PythonLexer(), formatter),
-    )
+    template = get_index_template()
+
+    about['style'] = formatter.get_style_defs()
+    about['body'] = highlight(code, PythonLexer(), formatter)
+
+    index_html = template.substitute(about)
 
     with open('index.html', 'w') as index_html_file:
         index_html_file.write(index_html)
