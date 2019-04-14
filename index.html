@@ -109,61 +109,73 @@
         <div class="container"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="ch">#!/usr/bin/env python</span>
 <span class="lineno"> 2 </span>
 <span class="lineno"> 3 </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
-<span class="lineno"> 4 </span>
-<span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span><span class="n">about</span> <span class="o">=</span> <span class="p">{</span>
-<span class="lineno"> 7 </span>    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;keshab paudel&#39;</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="s1">&#39;timezone&#39;</span><span class="p">:</span> <span class="s1">&#39;Europe/Berlin&#39;</span><span class="p">,</span>
-<span class="lineno"> 9 </span>    <span class="s1">&#39;birth_timezone&#39;</span><span class="p">:</span> <span class="s1">&#39;Asia/Kathmandu&#39;</span><span class="p">,</span>
-<span class="lineno">10 </span>    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;software development and Lowercase&#39;</span><span class="p">,</span>
-<span class="lineno">11 </span><span class="p">}</span>
-<span class="lineno">12 </span>
+<span class="lineno"> 4 </span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="lineno"> 5 </span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
+<span class="lineno"> 6 </span><span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
+<span class="lineno"> 7 </span><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span><span class="n">Link</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Link&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">])</span>
+<span class="lineno">11 </span><span class="n">Work</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Work&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">])</span>
+<span class="lineno">12 </span><span class="n">Tech</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Tech&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;skill_level&#39;</span><span class="p">,</span> <span class="s1">&#39;more&#39;</span><span class="p">])</span>
 <span class="lineno">13 </span>
-<span class="lineno">14 </span><span class="n">Link</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Link&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">])</span>
-<span class="lineno">15 </span>
-<span class="lineno">16 </span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;links&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">17 </span>    <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;mailto:self@&lt;this-domain&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Email&#39;</span><span class="p">),</span>
-<span class="lineno">18 </span>    <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;https://keshab.net&#39;</span><span class="p">,</span> <span class="s1">&#39;Website&#39;</span><span class="p">),</span>
-<span class="lineno">19 </span>    <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;https://github.com/poudel&#39;</span><span class="p">,</span> <span class="s1">&#39;Github&#39;</span><span class="p">),</span>
-<span class="lineno">20 </span><span class="p">]</span>
-<span class="lineno">21 </span>
-<span class="lineno">22 </span>
-<span class="lineno">23 </span><span class="n">Work</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Work&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">])</span>
-<span class="lineno">24 </span>
-<span class="lineno">25 </span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;works&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">26 </span>    <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Seerene&#39;</span><span class="p">,</span> <span class="s1">&#39;https://seerene.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec 2018&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-<span class="lineno">27 </span>    <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Khalti&#39;</span><span class="p">,</span> <span class="s1">&#39;https://khalti.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov 2018&#39;</span><span class="p">),</span>
-<span class="lineno">28 </span>    <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;AayuLogic&#39;</span><span class="p">,</span> <span class="s1">&#39;https://aayulogic.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Jan 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep 2017&#39;</span><span class="p">),</span>
-<span class="lineno">29 </span>    <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Real Solutions&#39;</span><span class="p">,</span> <span class="s1">&#39;https://realsolutions.com.np&#39;</span><span class="p">,</span> <span class="s1">&#39;May 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec 2016&#39;</span><span class="p">),</span>
-<span class="lineno">30 </span><span class="p">]</span>
-<span class="lineno">31 </span>
-<span class="lineno">32 </span>
-<span class="lineno">33 </span><span class="n">Tech</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Tech&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;skill_level&#39;</span><span class="p">,</span> <span class="s1">&#39;more&#39;</span><span class="p">])</span>
+<span class="lineno">14 </span>
+<span class="lineno">15 </span><span class="n">about</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno">16 </span>    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;keshab paudel&#39;</span><span class="p">,</span>
+<span class="lineno">17 </span>    <span class="s1">&#39;timezone&#39;</span><span class="p">:</span> <span class="s1">&#39;Europe/Berlin&#39;</span><span class="p">,</span>
+<span class="lineno">18 </span>    <span class="s1">&#39;birth_timezone&#39;</span><span class="p">:</span> <span class="s1">&#39;Asia/Kathmandu&#39;</span><span class="p">,</span>
+<span class="lineno">19 </span>    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;software development and Lowercase&#39;</span><span class="p">,</span>
+<span class="lineno">20 </span>    <span class="s1">&#39;links&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">21 </span>        <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;mailto:self@&lt;this-domain&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Email&#39;</span><span class="p">),</span>
+<span class="lineno">22 </span>        <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;https://keshab.net&#39;</span><span class="p">,</span> <span class="s1">&#39;Website&#39;</span><span class="p">),</span>
+<span class="lineno">23 </span>        <span class="n">Link</span><span class="p">(</span><span class="s1">&#39;https://github.com/poudel&#39;</span><span class="p">,</span> <span class="s1">&#39;Github&#39;</span><span class="p">),</span>
+<span class="lineno">24 </span>    <span class="p">],</span>
+<span class="lineno">25 </span>    <span class="s1">&#39;works&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">26 </span>        <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Seerene&#39;</span><span class="p">,</span> <span class="s1">&#39;https://seerene.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec 2018&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+<span class="lineno">27 </span>        <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Khalti&#39;</span><span class="p">,</span> <span class="s1">&#39;https://khalti.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov 2018&#39;</span><span class="p">),</span>
+<span class="lineno">28 </span>        <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;AayuLogic&#39;</span><span class="p">,</span> <span class="s1">&#39;https://aayulogic.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Jan 2017&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep 2017&#39;</span><span class="p">),</span>
+<span class="lineno">29 </span>        <span class="n">Work</span><span class="p">(</span><span class="s1">&#39;Real Solutions&#39;</span><span class="p">,</span> <span class="s1">&#39;https://realsolutions.com.np&#39;</span><span class="p">,</span> <span class="s1">&#39;May 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec 2016&#39;</span><span class="p">),</span>
+<span class="lineno">30 </span>    <span class="p">],</span>
+<span class="lineno">31 </span>    <span class="s1">&#39;tech&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">32 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;bread and butter&#39;</span><span class="p">),</span>
+<span class="lineno">33 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Django/DRF/Flask&#39;</span><span class="p">,</span> <span class="s1">&#39;web_framework&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;bread and butter&#39;</span><span class="p">),</span>
 <span class="lineno">34 </span>
-<span class="lineno">35 </span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;tech&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">36 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;bread and butter&#39;</span><span class="p">),</span>
-<span class="lineno">37 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Django/DRF/Flask&#39;</span><span class="p">,</span> <span class="s1">&#39;web_framework&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;bread and butter&#39;</span><span class="p">),</span>
-<span class="lineno">38 </span>
-<span class="lineno">39 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;PostgreSQL&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="s1">&#39;good_enough&#39;</span><span class="p">,</span> <span class="s1">&#39;it stares back&#39;</span><span class="p">),</span>
-<span class="lineno">40 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;MySQL&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="s1">&#39;good_enough&#39;</span><span class="p">,</span> <span class="s1">&#39;use postgres&#39;</span><span class="p">),</span>
-<span class="lineno">41 </span>
-<span class="lineno">42 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Emacs&#39;</span><span class="p">,</span> <span class="s1">&#39;operating_system&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;work environment of choice&#39;</span><span class="p">),</span>
-<span class="lineno">43 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;ArchLinux&#39;</span><span class="p">,</span> <span class="s1">&#39;bootloader&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;work environment&#39;</span><span class="p">),</span>
-<span class="lineno">44 </span>
-<span class="lineno">45 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;sicilian_bull&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;find someone else&#39;</span><span class="p">),</span>
-<span class="lineno">46 </span>    <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-<span class="lineno">47 </span><span class="p">]</span>
-<span class="lineno">48 </span>
+<span class="lineno">35 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;PostgreSQL&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="s1">&#39;good_enough&#39;</span><span class="p">,</span> <span class="s1">&#39;it stares back&#39;</span><span class="p">),</span>
+<span class="lineno">36 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;MySQL&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="s1">&#39;good_enough&#39;</span><span class="p">,</span> <span class="s1">&#39;use postgres&#39;</span><span class="p">),</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;Emacs&#39;</span><span class="p">,</span> <span class="s1">&#39;operating_system&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;work environment of choice&#39;</span><span class="p">),</span>
+<span class="lineno">39 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;ArchLinux&#39;</span><span class="p">,</span> <span class="s1">&#39;bootloader&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;work environment&#39;</span><span class="p">),</span>
+<span class="lineno">40 </span>
+<span class="lineno">41 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;sicilian_bull&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty_good&#39;</span><span class="p">,</span> <span class="s1">&#39;find someone else&#39;</span><span class="p">),</span>
+<span class="lineno">42 </span>        <span class="n">Tech</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+<span class="lineno">43 </span>    <span class="p">],</span>
+<span class="lineno">44 </span>    <span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">45 </span>        <span class="s1">&#39;Go&#39;</span><span class="p">,</span> <span class="s1">&#39;Elixir&#39;</span><span class="p">,</span> <span class="s1">&#39;Erlang&#39;</span><span class="p">,</span> <span class="s1">&#39;Emacs Lisp&#39;</span><span class="p">,</span> <span class="s1">&#39;Elm&#39;</span><span class="p">,</span>
+<span class="lineno">46 </span>        <span class="s1">&#39;TypeScript&#39;</span><span class="p">,</span> <span class="s1">&#39;Ubuntu&#39;</span><span class="p">,</span> <span class="s1">&#39;Debian&#39;</span><span class="p">,</span> <span class="s1">&#39;CentOS&#39;</span><span class="p">,</span>
+<span class="lineno">47 </span>    <span class="p">],</span>
+<span class="lineno">48 </span><span class="p">}</span>
 <span class="lineno">49 </span>
-<span class="lineno">50 </span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">51 </span>    <span class="s1">&#39;Go&#39;</span><span class="p">,</span> <span class="s1">&#39;Elixir&#39;</span><span class="p">,</span> <span class="s1">&#39;Erlang&#39;</span><span class="p">,</span> <span class="s1">&#39;Emacs Lisp&#39;</span><span class="p">,</span> <span class="s1">&#39;Elm&#39;</span><span class="p">,</span> <span class="s1">&#39;TypeScript&#39;</span><span class="p">,</span>
-<span class="lineno">52 </span>    <span class="s1">&#39;Ubuntu&#39;</span><span class="p">,</span> <span class="s1">&#39;Debian&#39;</span><span class="p">,</span> <span class="s1">&#39;CentOS&#39;</span><span class="p">,</span>
-<span class="lineno">53 </span><span class="p">]</span>
-<span class="lineno">54 </span>
-<span class="lineno">55 </span>
-<span class="lineno">56 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="lineno">57 </span>    <span class="kn">from</span> <span class="nn">generator</span> <span class="kn">import</span> <span class="n">generate</span>
-<span class="lineno">58 </span>    <span class="n">generate</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
+<span class="lineno">50 </span>
+<span class="lineno">51 </span><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">about</span><span class="p">):</span>
+<span class="lineno">52 </span>    <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="s1">&#39;inline&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;gruvbox&#39;</span><span class="p">)</span>
+<span class="lineno">53 </span>
+<span class="lineno">54 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.py&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">codefile</span><span class="p">:</span>
+<span class="lineno">55 </span>        <span class="n">code</span> <span class="o">=</span> <span class="n">codefile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="lineno">56 </span>
+<span class="lineno">57 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index_tpl.html&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tpl</span><span class="p">:</span>
+<span class="lineno">58 </span>        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">tpl</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="lineno">59 </span>
+<span class="lineno">60 </span>    <span class="n">about</span><span class="p">[</span><span class="s1">&#39;style&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">()</span>
+<span class="lineno">61 </span>    <span class="n">about</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">formatter</span><span class="p">)</span>
+<span class="lineno">62 </span>
+<span class="lineno">63 </span>    <span class="n">index_html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
+<span class="lineno">64 </span>
+<span class="lineno">65 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
+<span class="lineno">66 </span>        <span class="n">index_html_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">index_html</span><span class="p">)</span>
+<span class="lineno">67 </span>
+<span class="lineno">68 </span>
+<span class="lineno">69 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">70 </span>    <span class="n">generate</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
 </pre></div>
 </div>
     </body>
