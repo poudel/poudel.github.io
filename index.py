@@ -22,7 +22,8 @@ about = {
         Link('https://github.com/poudel', 'Github'),
     ],
     'works': [
-        Work('Seerene', 'https://seerene.com', 'Dec 2018', None),
+        Work('Revolut', 'https://revolut.com', 'Feb 2020', None),
+        Work('Seerene', 'https://seerene.com', 'Dec 2018', 'Jan 2020'),
         Work('Khalti', 'https://khalti.com', 'Sep 2017', 'Nov 2018'),
         Work('AayuLogic', 'https://aayulogic.com', 'Jan 2017', 'Sep 2017'),
         Work('Real Solutions', 'https://realsolutions.com.np', 'May 2015', 'Dec 2016'),
