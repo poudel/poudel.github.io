@@ -114,7 +114,7 @@
 <span class="lineno"> 6 </span>
 <span class="lineno"> 7 </span>
 <span class="lineno"> 8 </span><span class="n">Link</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">])</span>
-<span class="lineno"> 9 </span><span class="n">Work</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Work&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">])</span>
+<span class="lineno"> 9 </span><span class="n">Work</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Work&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">])</span>
 <span class="lineno">10 </span>
 <span class="lineno">11 </span><span class="n">about</span> <span class="o">=</span> <span class="p">{</span>
 <span class="lineno">12 </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Keshab Paudel&quot;</span><span class="p">,</span>
@@ -127,44 +127,42 @@
 <span class="lineno">19 </span>        <span class="n">Link</span><span class="p">(</span><span class="s2">&quot;https://github.com/poudel&quot;</span><span class="p">,</span> <span class="s2">&quot;Github&quot;</span><span class="p">),</span>
 <span class="lineno">20 </span>    <span class="p">],</span>
 <span class="lineno">21 </span>    <span class="s2">&quot;works&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="lineno">22 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Zageno&quot;</span><span class="p">,</span> <span class="s2">&quot;https://zageno.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Jul 2020&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
-<span class="lineno">23 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Revolut&quot;</span><span class="p">,</span> <span class="s2">&quot;https://revolut.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Feb 2020&quot;</span><span class="p">,</span> <span class="s2">&quot;Jul 2020&quot;</span><span class="p">),</span>
-<span class="lineno">24 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Seerene&quot;</span><span class="p">,</span> <span class="s2">&quot;https://seerene.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Dec 2018&quot;</span><span class="p">,</span> <span class="s2">&quot;Jan 2020&quot;</span><span class="p">),</span>
-<span class="lineno">25 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Khalti&quot;</span><span class="p">,</span> <span class="s2">&quot;https://khalti.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Sep 2017&quot;</span><span class="p">,</span> <span class="s2">&quot;Nov 2018&quot;</span><span class="p">),</span>
-<span class="lineno">26 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;AayuLogic&quot;</span><span class="p">,</span> <span class="s2">&quot;https://aayulogic.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Jan 2017&quot;</span><span class="p">,</span> <span class="s2">&quot;Sep 2017&quot;</span><span class="p">),</span>
-<span class="lineno">27 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Real Solutions&quot;</span><span class="p">,</span> <span class="s2">&quot;https://realsolutions.com.np&quot;</span><span class="p">,</span> <span class="s2">&quot;May 2015&quot;</span><span class="p">,</span> <span class="s2">&quot;Dec 2016&quot;</span><span class="p">),</span>
-<span class="lineno">28 </span>    <span class="p">],</span>
-<span class="lineno">29 </span>    <span class="s2">&quot;tech&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="lineno">30 </span>        <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
-<span class="lineno">31 </span>        <span class="s2">&quot;Django/DRF/Flask&quot;</span><span class="p">,</span>
-<span class="lineno">32 </span>        <span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
-<span class="lineno">33 </span>        <span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span>
-<span class="lineno">34 </span>        <span class="s2">&quot;Elixir/Erlang&quot;</span>
-<span class="lineno">35 </span>        <span class="s2">&quot;Clojure/Emacs Lisp/Racket&quot;</span><span class="p">,</span>
-<span class="lineno">36 </span>        <span class="s2">&quot;Linux&quot;</span><span class="p">,</span>
-<span class="lineno">37 </span>    <span class="p">],</span>
-<span class="lineno">38 </span><span class="p">}</span>
-<span class="lineno">39 </span>
-<span class="lineno">40 </span>
-<span class="lineno">41 </span><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">about</span><span class="p">):</span>
-<span class="lineno">42 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.py&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">codefile</span><span class="p">:</span>
-<span class="lineno">43 </span>        <span class="n">code</span> <span class="o">=</span> <span class="n">codefile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="lineno">44 </span>
-<span class="lineno">45 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index_tpl.html&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tpl</span><span class="p">:</span>
-<span class="lineno">46 </span>        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">tpl</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="lineno">47 </span>
-<span class="lineno">48 </span>    <span class="n">formatter</span> <span class="o">=</span> <span class="n">formatters</span><span class="o">.</span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="s2">&quot;inline&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;gruvbox&quot;</span><span class="p">)</span>
-<span class="lineno">49 </span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">()</span>
-<span class="lineno">50 </span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexers</span><span class="o">.</span><span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">formatter</span><span class="p">)</span>
+<span class="lineno">22 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Zageno&quot;</span><span class="p">,</span> <span class="s2">&quot;https://zageno.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2020 - &quot;</span><span class="p">),</span>
+<span class="lineno">23 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Revolut&quot;</span><span class="p">,</span> <span class="s2">&quot;https://revolut.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2020&quot;</span><span class="p">),</span>
+<span class="lineno">24 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Seerene&quot;</span><span class="p">,</span> <span class="s2">&quot;https://seerene.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2018 - 2020&quot;</span><span class="p">),</span>
+<span class="lineno">25 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Khalti&quot;</span><span class="p">,</span> <span class="s2">&quot;https://khalti.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2017 - 2018&quot;</span><span class="p">),</span>
+<span class="lineno">26 </span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Real Solutions (Aayulogic)&quot;</span><span class="p">,</span> <span class="s2">&quot;https://realsolutions.com.np&quot;</span><span class="p">,</span> <span class="s2">&quot;2015 - 2017&quot;</span><span class="p">),</span>
+<span class="lineno">27 </span>    <span class="p">],</span>
+<span class="lineno">28 </span>    <span class="s2">&quot;tech&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="lineno">29 </span>        <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+<span class="lineno">30 </span>        <span class="s2">&quot;Django/DRF/Flask&quot;</span><span class="p">,</span>
+<span class="lineno">31 </span>        <span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
+<span class="lineno">32 </span>        <span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span>
+<span class="lineno">33 </span>        <span class="s2">&quot;Elixir/Erlang&quot;</span> <span class="s2">&quot;Clojure/Emacs Lisp/Racket&quot;</span><span class="p">,</span>
+<span class="lineno">34 </span>        <span class="s2">&quot;Linux&quot;</span><span class="p">,</span>
+<span class="lineno">35 </span>    <span class="p">],</span>
+<span class="lineno">36 </span><span class="p">}</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>
+<span class="lineno">39 </span><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">about</span><span class="p">):</span>
+<span class="lineno">40 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.py&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">codefile</span><span class="p">:</span>
+<span class="lineno">41 </span>        <span class="n">code</span> <span class="o">=</span> <span class="n">codefile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="lineno">42 </span>
+<span class="lineno">43 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index_tpl.html&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tpl</span><span class="p">:</span>
+<span class="lineno">44 </span>        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">tpl</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="lineno">45 </span>
+<span class="lineno">46 </span>    <span class="n">formatter</span> <span class="o">=</span> <span class="n">formatters</span><span class="o">.</span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="s2">&quot;inline&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;gruvbox&quot;</span><span class="p">)</span>
+<span class="lineno">47 </span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">()</span>
+<span class="lineno">48 </span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexers</span><span class="o">.</span><span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">formatter</span><span class="p">)</span>
+<span class="lineno">49 </span>
+<span class="lineno">50 </span>    <span class="n">index_html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
 <span class="lineno">51 </span>
-<span class="lineno">52 </span>    <span class="n">index_html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
-<span class="lineno">53 </span>
-<span class="lineno">54 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
-<span class="lineno">55 </span>        <span class="n">index_html_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">index_html</span><span class="p">)</span>
-<span class="lineno">56 </span>
-<span class="lineno">57 </span>
-<span class="lineno">58 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="lineno">59 </span>    <span class="n">generate</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
+<span class="lineno">52 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
+<span class="lineno">53 </span>        <span class="n">index_html_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">index_html</span><span class="p">)</span>
+<span class="lineno">54 </span>
+<span class="lineno">55 </span>
+<span class="lineno">56 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="lineno">57 </span>    <span class="n">generate</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
 </pre></div>
 </div>
     </body>

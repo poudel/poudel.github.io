@@ -6,7 +6,7 @@ from pygments import highlight, lexers, formatters
 
 
 Link = namedtuple("Link", ["url", "description"])
-Work = namedtuple("Work", ["company", "url", "start", "end"])
+Work = namedtuple("Work", ["company", "url", "range"])
 
 about = {
     "name": "Keshab Paudel",
@@ -19,20 +19,18 @@ about = {
         Link("https://github.com/poudel", "Github"),
     ],
     "works": [
-        Work("Zageno", "https://zageno.com", "Jul 2020", None),
-        Work("Revolut", "https://revolut.com", "Feb 2020", "Jul 2020"),
-        Work("Seerene", "https://seerene.com", "Dec 2018", "Jan 2020"),
-        Work("Khalti", "https://khalti.com", "Sep 2017", "Nov 2018"),
-        Work("AayuLogic", "https://aayulogic.com", "Jan 2017", "Sep 2017"),
-        Work("Real Solutions", "https://realsolutions.com.np", "May 2015", "Dec 2016"),
+        Work("Zageno", "https://zageno.com", "2020 - "),
+        Work("Revolut", "https://revolut.com", "2020"),
+        Work("Seerene", "https://seerene.com", "2018 - 2020"),
+        Work("Khalti", "https://khalti.com", "2017 - 2018"),
+        Work("Real Solutions (Aayulogic)", "https://realsolutions.com.np", "2015 - 2017"),
     ],
     "tech": [
         "Python",
         "Django/DRF/Flask",
         "PostgreSQL",
         "JavaScript",
-        "Elixir/Erlang"
-        "Clojure/Emacs Lisp/Racket",
+        "Elixir/Erlang" "Clojure/Emacs Lisp/Racket",
         "Linux",
     ],
 }
