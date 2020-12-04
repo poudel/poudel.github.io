@@ -1,4 +1,8 @@
 .venv
+venv
 _site
 .sass-cache
 .directory
+*.pyc
+dist/
+*.egg-info/
