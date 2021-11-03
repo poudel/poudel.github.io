@@ -19,7 +19,8 @@ about = {
         Link("https://github.com/poudel", "Github"),
     ],
     "works": [
-        Work("Zageno", "https://zageno.com", "2020 - "),
+        Work("ThanksBen", "https://thanksben.com", "2021 - "),
+        Work("Zageno", "https://zageno.com", "2020 - 2021"),
         Work("Revolut", "https://revolut.com", "2020"),
         Work("Seerene", "https://seerene.com", "2018 - 2020"),
         Work("Khalti", "https://khalti.com", "2017 - 2018"),
@@ -30,7 +31,8 @@ about = {
         "Django/DRF/Flask",
         "PostgreSQL",
         "JavaScript",
-        "Elixir/Erlang" "Clojure/Emacs Lisp/Racket",
+        "Elixir/Erlang",
+        "Clojure/Emacs Lisp/Racket",
         "Linux",
     ],
 }
