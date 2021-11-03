@@ -30,23 +30,21 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
         with:
-          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: # optional, default is 3.x
-          # The target architecture (x86, x64) of the Python interpreter.
-          architecture: # optional
-          # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
-          token: # optional, default is ${{ github.token }}
+          python-version: 3.7
 
-      - name: run command
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          
+      - name: Run commands
         run: |
           pip install pygments
           pip install -e ./gruvbox-pygments
           echo "generating"
           python index.py
-
-      - name: Git Commit and Push
-        uses: github-actions-x/commit@v2.8
-        with:
-          # Github Token with commit access
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: master
+          git status
+          git add .
+          git commit -m "update"
+          git push origin master
