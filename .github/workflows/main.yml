@@ -41,4 +41,13 @@ jobs:
         run: |
           pip install pygments
           pip install -e ./gruvbox-pygments
+          echo "generating
           python index.py
+
+      - name: Git Commit and Push
+        uses: github-actions-x/commit@v2.8
+        with:
+          # Github Token with commit access
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: master
+          files: index.html
