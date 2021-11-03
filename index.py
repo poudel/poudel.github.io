@@ -53,6 +53,8 @@ def generate(about):
 
     with open("index.html", "w") as index_html_file:
         index_html_file.write(index_html)
+        
+    print("Done")
 
 
 if __name__ == "__main__":
