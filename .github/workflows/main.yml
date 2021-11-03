@@ -37,9 +37,8 @@ jobs:
           # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
           token: # optional, default is ${{ github.token }}
 
-      - name: pipenv setup
+      - name: run command
         run: |
-          pip install pipenv
-          pipenv install
-          pipenv run ./index.py
-
+          pip install pygments
+          pip install -e ./gruvbox-pygments
+          python index.py
