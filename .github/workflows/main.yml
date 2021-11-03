@@ -41,7 +41,7 @@ jobs:
         run: |
           pip install pygments
           pip install -e ./gruvbox-pygments
-          echo "generating
+          echo "generating"
           python index.py
 
       - name: Git Commit and Push
