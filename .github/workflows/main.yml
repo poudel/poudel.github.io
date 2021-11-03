@@ -50,4 +50,3 @@ jobs:
           # Github Token with commit access
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: master
-          files: index.html
