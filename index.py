@@ -24,7 +24,7 @@ about = {
         Work("Revolut", "https://revolut.com", "2020"),
         Work("Seerene", "https://seerene.com", "2018 - 2020"),
         Work("Khalti", "https://khalti.com", "2017 - 2018"),
-        Work("Real Solutions (Aayulogic)", "https://realsolutions.com.np", "2015 - 2017"),
+        Work("Real Solutions / Aayulogic", "-", "2015 - 2017"),
     ],
     "tech": [
         "Python",
