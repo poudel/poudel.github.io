@@ -1,6 +1,6 @@
 #+TITLE: Keshab Paudel
 #+AUTHOR: Keshab Paudel
-#+HTML_HEAD: <style>body {max-width: 1000px; margin: auto} </style>
+#+HTML_HEAD: <style>body {max-width: 1000px; margin: auto; padding: 20px;} </style>
 
 #+BEGIN_SRC emacs-lisp
 (progn
@@ -28,6 +28,7 @@
                 "Elixir/Erlang" 
                 "Lisp"
                 "Linux"))))
+
   (org-publish-project `("keshab.net"
          :base-directory ,(file-name-directory buffer-file-name)
          :base-extension "org"
@@ -48,4 +49,4 @@
 
 #+RESULTS:
 
-[[./index-python.html][old site]]
+[[./index-python.html][old site]] | [[https://keshp.com]]
