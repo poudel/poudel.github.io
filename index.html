@@ -1,178 +1,64 @@
-<!doctype html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Keshab Paudel</title>
-        <meta name="description" content="I like abstractions, self-reference, and writing code">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <style>
-         body {
-             background-color: #1d2021;
-             color: #ada888;
-             font-family: monospace;
-         }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-08-27 Sat 17:51 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Keshab Paudel</title>
+<meta name="author" content="Keshab Paudel" />
+<meta name="generator" content="Org Mode" />
+<style>body {max-width: 1000px; margin: auto} </style>
+</head>
+<body>
+<div id="content" class="content">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0000FF;">progn</span>
+  (<span style="color: #0000FF;">setq</span> about
+    `((name  . <span style="color: #008000;">"Keshab Paudel"</span>)
+      (desc  . <span style="color: #008000;">"a fan of self-reference"</span>)
+      (mail  . <span style="color: #008000;">"self@&lt;this-domain&gt;"</span>)
+      (tz    . <span style="color: #008000;">"Europe/Berlin"</span>)
 
-         .container {
-             height: 900px;
-             max-width: 700px;
-             margin: auto;
-             border: solid 1px #efefef;
-             padding: 2px 10px;
-             margin-top: 50px;
-             overflow: auto;
-             background-color: #282828;
-         }
+      (links . (<span style="color: #008000;">"https://keshab.net"</span>
+                <span style="color: #008000;">"https://keshp.com"</span>
+                <span style="color: #008000;">"https://github.com/poudel"</span>))
 
-         .lineno {color: grey; margin-right: 10px;}
+      (work  . ((<span style="color: #008000;">"ThanksBen"</span> <span style="color: #008000;">"https://thanksben.com"</span> <span style="color: #008000;">"2021 - now"</span>)
+               (<span style="color: #008000;">"Zageno"</span> <span style="color: #008000;">"https://zageno.com"</span> <span style="color: #008000;">"2020 - 2021"</span>)
+               (<span style="color: #008000;">"Revolut"</span> <span style="color: #008000;">"https://revolut.com"</span> <span style="color: #008000;">"2020"</span>)
+               (<span style="color: #008000;">"Seerene"</span> <span style="color: #008000;">"https://seerene.com"</span> <span style="color: #008000;">"2018 - 2022"</span>)
+               (<span style="color: #008000;">"Khalti"</span> <span style="color: #008000;">"https://khalti.com"</span> <span style="color: #008000;">"2017 - 2018"</span>)
+               (<span style="color: #008000;">"Real Solutions"</span> <span style="color: #008000;">"-"</span> <span style="color: #008000;">"2015 - 2017"</span>)))
 
-         pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.hll { background-color: #ffffcc }
-.c { color: #928374; font-style: italic; background-color: #282828 } /* Comment */
-.err { color: #ebdbb2; background-color: #282828 } /* Error */
-.esc { color: #ebdbb2; background-color: #282828 } /* Escape */
-.g { color: #ebdbb2; background-color: #282828 } /* Generic */
-.k { color: #fe8019; background-color: #282828 } /* Keyword */
-.l { color: #ebdbb2; background-color: #282828 } /* Literal */
-.n { color: #ebdbb2; background-color: #282828 } /* Name */
-.o { color: #fe8019; background-color: #282828 } /* Operator */
-.x { color: #ebdbb2; background-color: #282828 } /* Other */
-.p { color: #ebdbb2; background-color: #282828 } /* Punctuation */
-.ch { color: #928374; font-style: italic; background-color: #282828 } /* Comment.Hashbang */
-.cm { color: #928374; font-style: italic; background-color: #282828 } /* Comment.Multiline */
-.cp { color: #8ec07c; background-color: #282828 } /* Comment.Preproc */
-.cpf { color: #928374; font-style: italic; background-color: #282828 } /* Comment.PreprocFile */
-.c1 { color: #928374; font-style: italic; background-color: #282828 } /* Comment.Single */
-.cs { color: #928374; font-style: italic; background-color: #282828 } /* Comment.Special */
-.gd { color: #282828; background-color: #fb4934 } /* Generic.Deleted */
-.ge { color: #83a598; text-decoration: underline; background-color: #282828 } /* Generic.Emph */
-.gr { color: #ebdbb2; font-weight: bold; background-color: #fb4934 } /* Generic.Error */
-.gh { color: #b8bb26; font-weight: bold; background-color: #282828 } /* Generic.Heading */
-.gi { color: #282828; background-color: #b8bb26 } /* Generic.Inserted */
-.go { color: #504945; background-color: #282828 } /* Generic.Output */
-.gp { color: #ebdbb2; background-color: #282828 } /* Generic.Prompt */
-.gs { color: #ebdbb2; background-color: #282828 } /* Generic.Strong */
-.gu { color: #b8bb26; font-weight: bold; background-color: #282828 } /* Generic.Subheading */
-.gt { color: #ebdbb2; font-weight: bold; background-color: #fb4934 } /* Generic.Traceback */
-.kc { color: #fe8019; background-color: #282828 } /* Keyword.Constant */
-.kd { color: #fe8019; background-color: #282828 } /* Keyword.Declaration */
-.kn { color: #fe8019; background-color: #282828 } /* Keyword.Namespace */
-.kp { color: #fe8019; background-color: #282828 } /* Keyword.Pseudo */
-.kr { color: #fe8019; background-color: #282828 } /* Keyword.Reserved */
-.kt { color: #fabd2f; background-color: #282828 } /* Keyword.Type */
-.ld { color: #ebdbb2; background-color: #282828 } /* Literal.Date */
-.m { color: #d3869b; background-color: #282828 } /* Literal.Number */
-.s { color: #b8bb26; background-color: #282828 } /* Literal.String */
-.na { color: #b8bb26; font-weight: bold; background-color: #282828 } /* Name.Attribute */
-.nb { color: #fabd2f; background-color: #282828 } /* Name.Builtin */
-.nc { color: #ebdbb2; background-color: #282828 } /* Name.Class */
-.no { color: #d3869b; background-color: #282828 } /* Name.Constant */
-.nd { color: #ebdbb2; background-color: #282828 } /* Name.Decorator */
-.ni { color: #fabd2f; background-color: #282828 } /* Name.Entity */
-.ne { color: #fb4934; background-color: #282828 } /* Name.Exception */
-.nf { color: #fabd2f; background-color: #282828 } /* Name.Function */
-.nl { color: #fb4934; background-color: #282828 } /* Name.Label */
-.nn { color: #ebdbb2; background-color: #282828 } /* Name.Namespace */
-.nx { color: #ebdbb2; background-color: #282828 } /* Name.Other */
-.py { color: #ebdbb2; background-color: #282828 } /* Name.Property */
-.nt { color: #fb4934; background-color: #282828 } /* Name.Tag */
-.nv { color: #ebdbb2; background-color: #282828 } /* Name.Variable */
-.ow { color: #fe8019; background-color: #282828 } /* Operator.Word */
-.w { color: #ebdbb2; background-color: #282828 } /* Text.Whitespace */
-.mb { color: #d3869b; background-color: #282828 } /* Literal.Number.Bin */
-.mf { color: #d3869b; background-color: #282828 } /* Literal.Number.Float */
-.mh { color: #d3869b; background-color: #282828 } /* Literal.Number.Hex */
-.mi { color: #d3869b; background-color: #282828 } /* Literal.Number.Integer */
-.mo { color: #d3869b; background-color: #282828 } /* Literal.Number.Oct */
-.sa { color: #b8bb26; background-color: #282828 } /* Literal.String.Affix */
-.sb { color: #b8bb26; background-color: #282828 } /* Literal.String.Backtick */
-.sc { color: #b8bb26; background-color: #282828 } /* Literal.String.Char */
-.dl { color: #b8bb26; background-color: #282828 } /* Literal.String.Delimiter */
-.sd { color: #b8bb26; background-color: #282828 } /* Literal.String.Doc */
-.s2 { color: #b8bb26; background-color: #282828 } /* Literal.String.Double */
-.se { color: #b8bb26; background-color: #282828 } /* Literal.String.Escape */
-.sh { color: #b8bb26; background-color: #282828 } /* Literal.String.Heredoc */
-.si { color: #b8bb26; background-color: #282828 } /* Literal.String.Interpol */
-.sx { color: #b8bb26; background-color: #282828 } /* Literal.String.Other */
-.sr { color: #b8bb26; background-color: #282828 } /* Literal.String.Regex */
-.s1 { color: #b8bb26; background-color: #282828 } /* Literal.String.Single */
-.ss { color: #83a598; background-color: #282828 } /* Literal.String.Symbol */
-.bp { color: #fabd2f; background-color: #282828 } /* Name.Builtin.Pseudo */
-.fm { color: #fabd2f; background-color: #282828 } /* Name.Function.Magic */
-.vc { color: #ebdbb2; background-color: #282828 } /* Name.Variable.Class */
-.vg { color: #ebdbb2; background-color: #282828 } /* Name.Variable.Global */
-.vi { color: #ebdbb2; background-color: #282828 } /* Name.Variable.Instance */
-.vm { color: #ebdbb2; background-color: #282828 } /* Name.Variable.Magic */
-.il { color: #d3869b; background-color: #282828 } /* Literal.Number.Integer.Long */
-        </style>
-    </head>
-    <body>
-        <div class="container"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env python</span>
-<span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span><span class="p">,</span> <span class="n">lexers</span><span class="p">,</span> <span class="n">formatters</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span><span class="n">Link</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Link&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">])</span>
-<span class="linenos"> 9</span><span class="n">Work</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Work&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">])</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">about</span> <span class="o">=</span> <span class="p">{</span>
-<span class="linenos">12</span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Keshab Paudel&quot;</span><span class="p">,</span>
-<span class="linenos">13</span>    <span class="s2">&quot;timezone&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe/Berlin&quot;</span><span class="p">,</span>
-<span class="linenos">14</span>    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;I like abstractions, self-reference, and writing code&quot;</span><span class="p">,</span>
-<span class="linenos">15</span>    <span class="s2">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="linenos">16</span>        <span class="n">Link</span><span class="p">(</span><span class="s2">&quot;mailto:self@&lt;this-domain&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Email&quot;</span><span class="p">),</span>
-<span class="linenos">17</span>        <span class="n">Link</span><span class="p">(</span><span class="s2">&quot;https://keshab.net&quot;</span><span class="p">,</span> <span class="s2">&quot;Website&quot;</span><span class="p">),</span>
-<span class="linenos">18</span>        <span class="n">Link</span><span class="p">(</span><span class="s2">&quot;https://keshp.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Website&quot;</span><span class="p">),</span>
-<span class="linenos">19</span>        <span class="n">Link</span><span class="p">(</span><span class="s2">&quot;https://github.com/poudel&quot;</span><span class="p">,</span> <span class="s2">&quot;Github&quot;</span><span class="p">),</span>
-<span class="linenos">20</span>    <span class="p">],</span>
-<span class="linenos">21</span>    <span class="s2">&quot;works&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="linenos">22</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;ThanksBen&quot;</span><span class="p">,</span> <span class="s2">&quot;https://thanksben.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2021 - &quot;</span><span class="p">),</span>
-<span class="linenos">23</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Zageno&quot;</span><span class="p">,</span> <span class="s2">&quot;https://zageno.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2020 - 2021&quot;</span><span class="p">),</span>
-<span class="linenos">24</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Revolut&quot;</span><span class="p">,</span> <span class="s2">&quot;https://revolut.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2020&quot;</span><span class="p">),</span>
-<span class="linenos">25</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Seerene&quot;</span><span class="p">,</span> <span class="s2">&quot;https://seerene.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2018 - 2020&quot;</span><span class="p">),</span>
-<span class="linenos">26</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Khalti&quot;</span><span class="p">,</span> <span class="s2">&quot;https://khalti.com&quot;</span><span class="p">,</span> <span class="s2">&quot;2017 - 2018&quot;</span><span class="p">),</span>
-<span class="linenos">27</span>        <span class="n">Work</span><span class="p">(</span><span class="s2">&quot;Real Solutions / Aayulogic&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;2015 - 2017&quot;</span><span class="p">),</span>
-<span class="linenos">28</span>    <span class="p">],</span>
-<span class="linenos">29</span>    <span class="s2">&quot;tech&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="linenos">30</span>        <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
-<span class="linenos">31</span>        <span class="s2">&quot;Django/DRF/Flask&quot;</span><span class="p">,</span>
-<span class="linenos">32</span>        <span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
-<span class="linenos">33</span>        <span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span>
-<span class="linenos">34</span>        <span class="s2">&quot;Elixir/Erlang&quot;</span><span class="p">,</span>
-<span class="linenos">35</span>        <span class="s2">&quot;Clojure/Emacs Lisp/Racket&quot;</span><span class="p">,</span>
-<span class="linenos">36</span>        <span class="s2">&quot;Linux&quot;</span><span class="p">,</span>
-<span class="linenos">37</span>    <span class="p">],</span>
-<span class="linenos">38</span><span class="p">}</span>
-<span class="linenos">39</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">about</span><span class="p">):</span>
-<span class="linenos">42</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.py&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">codefile</span><span class="p">:</span>
-<span class="linenos">43</span>        <span class="n">code</span> <span class="o">=</span> <span class="n">codefile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="linenos">44</span>
-<span class="linenos">45</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index_tpl.html&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tpl</span><span class="p">:</span>
-<span class="linenos">46</span>        <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">tpl</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="linenos">47</span>
-<span class="linenos">48</span>    <span class="n">formatter</span> <span class="o">=</span> <span class="n">formatters</span><span class="o">.</span><span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">linenos</span><span class="o">=</span><span class="s2">&quot;inline&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;gruvbox&quot;</span><span class="p">)</span>
-<span class="linenos">49</span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">get_style_defs</span><span class="p">()</span>
-<span class="linenos">50</span>    <span class="n">about</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexers</span><span class="o">.</span><span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">formatter</span><span class="p">)</span>
-<span class="linenos">51</span>
-<span class="linenos">52</span>    <span class="n">index_html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
-<span class="linenos">53</span>
-<span class="linenos">54</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index_html_file</span><span class="p">:</span>
-<span class="linenos">55</span>        <span class="n">index_html_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">index_html</span><span class="p">)</span>
-<span class="linenos">56</span>        
-<span class="linenos">57</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
-<span class="linenos">58</span>
-<span class="linenos">59</span>
-<span class="linenos">60</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<span class="linenos">61</span>    <span class="n">generate</span><span class="p">(</span><span class="n">about</span><span class="p">)</span>
-</pre></div>
+      (tech  . (<span style="color: #008000;">"Python"</span>
+                <span style="color: #008000;">"Django/DRF/Flask"</span>
+                <span style="color: #008000;">"PostgreSQL"</span>
+                <span style="color: #008000;">"JavaScript"</span>
+                <span style="color: #008000;">"Elixir/Erlang"</span> 
+                <span style="color: #008000;">"Lisp"</span>
+                <span style="color: #008000;">"Linux"</span>))))
+  (org-publish-project `(<span style="color: #008000;">"keshab.net"</span>
+         <span style="color: #006FE0;">:base-directory</span> ,(file-name-directory buffer-file-name)
+         <span style="color: #006FE0;">:base-extension</span> <span style="color: #008000;">"org"</span>
+         <span style="color: #006FE0;">:publishing-directory</span> ,(file-name-directory buffer-file-name)
+         <span style="color: #006FE0;">:recursive</span> nil
+         <span style="color: #006FE0;">:html-head</span> nil
+         <span style="color: #006FE0;">:html-doctype</span> <span style="color: #008000;">"html5"</span>
+         <span style="color: #006FE0;">:html-postamble</span> nil
+         <span style="color: #006FE0;">:html-preamble</span> nil
+         <span style="color: #006FE0;">:html-head-include-default-style</span> nil
+         <span style="color: #006FE0;">:auto-sitemap</span> nil
+         <span style="color: #006FE0;">:section-numbers</span> nil
+         <span style="color: #006FE0;">:with-toc</span> nil
+         <span style="color: #006FE0;">:with-date</span> nil
+         <span style="color: #006FE0;">:with-title</span> nil
+         <span style="color: #006FE0;">:publishing-function</span> org-html-publish-to-html)))
+</pre>
 </div>
-    </body>
+
+<p>
+<a href="./index-python.html">old site</a>
+</p>
+</div>
+</body>
 </html>

@@ -1,8 +1,0 @@
-User-Agent: *
-Disallow: 
-Disallow: /.gitignore
-Disallow: /.git
-Disallow: /generator.py
-Disallow: /index.py
-Disallow: /Pipfile
-Disallow: /Pipfile.lock
