@@ -1,52 +1,45 @@
-#+TITLE: Keshab Paudel
+#+TITLE: (cons 'keshab (cons 'paudel nil))
 #+AUTHOR: Keshab Paudel
-#+HTML_HEAD: <style>body {max-width: 1000px; margin: auto; padding: 20px;} </style>
+#+HTML_HEAD: <style>body {padding: 0 5px;} </style>
 
 #+BEGIN_SRC emacs-lisp
 (progn
-  (setq about
-    `((name  . "Keshab Paudel")
-      (desc  . "a fan of self-reference")
-      (mail  . "self@<this-domain>")
-      (tz    . "Europe/Berlin")
+  (setq 
+   about
+   '(:mail self@this-domain
+     :tz   berlin
+     :gh   github.com/poudel
+     :work ((thanksben.com 2021 nil)
+            (zageno.com 2020 2021)
+            (revolut.com 2020 2020) 
+            (seerene.com 2018 2022) 
+            (khalti.com 2017 2018)
+            (realsolutions.com.np 2015 2017))
+     
+     :tech (python
+            django
+            postgresql
+            javascript
+            lisp
+            linux)))
 
-      (links . ("https://keshab.net"
-                "https://keshp.com"
-                "https://github.com/poudel"))
-
-      (work  . (("ThanksBen" "https://thanksben.com" "2021 - now")
-               ("Zageno" "https://zageno.com" "2020 - 2021")
-               ("Revolut" "https://revolut.com" "2020")
-               ("Seerene" "https://seerene.com" "2018 - 2022")
-               ("Khalti" "https://khalti.com" "2017 - 2018")
-               ("Real Solutions" "-" "2015 - 2017")))
-
-      (tech  . ("Python"
-                "Django/DRF/Flask"
-                "PostgreSQL"
-                "JavaScript"
-                "Elixir/Erlang" 
-                "Lisp"
-                "Linux"))))
-
-  (org-publish-project `("keshab.net"
-         :base-directory ,(file-name-directory buffer-file-name)
-         :base-extension "org"
-         :publishing-directory ,(file-name-directory buffer-file-name)
-         :recursive nil
-         :html-head nil
-         :html-doctype "html5"
-         :html-postamble nil
-         :html-preamble nil
-         :html-head-include-default-style nil
-         :auto-sitemap nil
-         :section-numbers nil
-         :with-toc nil
-         :with-date nil
-         :with-title nil
-         :publishing-function org-html-publish-to-html)))
+  (org-publish-project 
+   `("keshab.net"
+     :base-directory 
+     ,(file-name-directory buffer-file-name)
+     :base-extension "org"
+     :publishing-directory 
+     ,(file-name-directory buffer-file-name)
+     :recursive nil
+     :html-head nil
+     :html-doctype "html5"
+     :html-postamble nil
+     :html-preamble nil
+     :html-head-include-default-style nil
+     :auto-sitemap nil
+     :section-numbers nil
+     :with-toc nil
+     :with-date nil
+     :with-title nil
+     :publishing-function org-html-publish-to-html)))
 #+END_SRC
-
-#+RESULTS:
-
-[[./index-python.html][old site]] | [[https://keshp.com]]
