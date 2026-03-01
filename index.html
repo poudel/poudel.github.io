@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keshab.net</title>
+  <meta name="description" content="Personal website">
+  <style>
+    :root {
+      /* Light mode (default) */
+      --bg-color: #ffffff;
+      --text-color: #222;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Dark mode */
+        --bg-color: #111611;
+        --text-color: #e0e0e0;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 10px 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    .profile-img {
+      display: block;
+      margin: 0 0 20px 0;
+      max-width: 100%;
+      border-radius: 4px;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      margin-bottom: 4px;
+    }
+
+    .link-desc {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-left: 8px;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <img src="kp-seaside.jpeg" alt="on some beach" class="profile-img">
+
+      <nav>
+        <ul>
+          <li>
+            mail
+            <span class="link-desc">self@keshab.net</span>
+          </li>
+          <li>
+            <span>tz</span>
+            <span class="link-desc">berlin</span>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </div>
+</body>
+
+</html>
